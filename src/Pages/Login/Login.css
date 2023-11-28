@@ -1,0 +1,15 @@
+#background{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+   
+   
+    background-position: center;
+
+    background-image: url('https://i.ibb.co/RbjVCPj/cute-kitten-walking-outdoors-23-2150752842.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    
+}
