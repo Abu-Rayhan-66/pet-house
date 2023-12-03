@@ -114,7 +114,7 @@ const CreateDonationCampaign = () => {
                        
                         
 
-                        <button className="btn w-[300px] md:w-[400px] bg-blue-500 text-white rounded-md hover:text-black hover:bg-blue-300  text-lg font-semibold">Add Pet</button>
+                        <button className="btn w-[300px] md:w-[400px] bg-blue-500 text-white rounded-md hover:text-black hover:bg-blue-300  text-lg font-semibold">Create</button>
                     </form>
                 </div>
             </div>

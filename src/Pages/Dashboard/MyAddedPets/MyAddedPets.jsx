@@ -15,6 +15,7 @@ const MyAddedPets = () => {
   console.log(myPet)
   // const {user} = useContext(AuthContext)
     const axiosPublic = useAxiosPublic()
+    
     // const [menu, , refetch] = useMyPet()
     
     // const [data,setData] = useState([])
@@ -49,7 +50,7 @@ const MyAddedPets = () => {
               if(res.data.deletedCount > 0){
                 refetch()
                   Swal.fire({
-                      title: "Deleted!",
+                      title: "Reject!",
                       text: `Pet has been deleted successfully`,
                       icon: "success"
                     });
@@ -59,6 +60,25 @@ const MyAddedPets = () => {
         });
 
   }
+
+  const handleAdopt = (user)=>{
+    axiosPublic.patch(`/pets/status/${user._id}`)
+  .then(res=>{
+    console.log(res.data)
+    
+    if(res.data.modifiedCount > 0){
+      refetch()
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: `${user.name} is adopted now!`,
+        showConfirmButton: false,
+        timer: 1500
+      });
+    }
+  })
+    
+}
     
     
 
@@ -104,7 +124,9 @@ const MyAddedPets = () => {
           </td>
           <td><Link to={`/dashboard/petUpdate/${pet._id}`}><button className="btn bg-blue-500 text-white rounded-md hover:text-black hover:bg-blue-300  text-lg font-semibold">Update</button></Link></td>
           <td><Link ><button onClick={() => handleDelete(pet._id)} className="btn bg-blue-500 text-white rounded-md hover:text-black hover:bg-blue-300  text-lg font-semibold">Delete</button></Link></td>
-          <td><Link ><button className="btn bg-blue-500 text-white rounded-md hover:text-black hover:bg-blue-300  text-lg font-semibold">Adopt</button></Link></td>
+          <td><Link >{pet.adopted === false ? <button onClick={() => handleAdopt(pet)} className="btn bg-blue-500 text-white rounded-md hover:text-black hover:bg-blue-300  text-lg font-semibold">Adopt</button>:
+          <button disabled className="btn bg-blue-500 text-white rounded-md hover:text-black hover:bg-blue-300  text-lg font-semibold">Adopt</button>
+          }</Link></td>
           
         </tr>)
       }

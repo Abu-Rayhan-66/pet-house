@@ -30,7 +30,8 @@ const PetDetails = () => {
             email:email,
             name:name,
             number:number,
-            address:address
+            address:address,
+            status:'pending'
         }
 
         axiosPublic.post('/adoptions', adoptInfo)
@@ -67,17 +68,17 @@ const PetDetails = () => {
         <dialog id="my_modal_5" className="modal z-[0] modal-bottom sm:modal-middle">
             <div className="modal-box">
                 <form onSubmit={handleSubmit(onSubmit)}>        
-                <p className="text-blue-500">User Email</p>
+                <p className="text-blue-500">Your Email</p>
                 <input {...register("email")} className="pl-2 text-white rounded-md py-2 w-[300px] md:w-full bg-blue-400" defaultValue={user.email} type="email"    />
                 {/* {errors.email && <span className="mt-2 text-red-600">Email is required </span>} */}
                 <br />
-                <p className="text-blue-500">User Name</p>
+                <p className="text-blue-500">Your Name</p>
                 <input {...register("name")} className="pl-2 text-white rounded-md py-2 w-[300px] md:w-full bg-blue-400" defaultValue={user.displayName} type="text"  />
                 <br />
-                <p className="text-blue-500">User Name</p>
+                <p className="text-blue-500">Phone Number</p>
                 <input {...register("number")} className="pl-2 text-white rounded-md py-2 w-[300px] md:w-full bg-blue-400"  type="text"  />
                 <br />
-                <p className="text-blue-500">User Name</p>
+                <p className="text-blue-500">Address</p>
                 <input {...register("address")} className="pl-2 text-white rounded-md py-2 w-[300px] md:w-full bg-blue-400"  type="text"  />
                 {/* {errors.name && <span className="mt-2 text-red-600">Email is required </span>} */}
                 <br />

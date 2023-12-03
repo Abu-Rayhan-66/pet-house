@@ -21,6 +21,8 @@ import PetDetails from "../Pages/PetListing/PetDetails/PetDetails";
 import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
 import AdminRoute from "./AdminRoutes";
 import DonationDetails from "../Pages/DonationCampaigns/DonationDetails/DonationDetails";
+import AllPets from "../Pages/Dashboard/AllPtes/AllPets";
+import AllDonations from "../Pages/Dashboard/AllDonations/AllDonations";
 
   const router = createBrowserRouter([
     {
@@ -102,6 +104,14 @@ import DonationDetails from "../Pages/DonationCampaigns/DonationDetails/Donation
       {
         path:"/dashboard/allUsers",
         element:<AdminRoute><AllUsers></AllUsers></AdminRoute>
+      },
+      {
+        path:"/dashboard/allPets",
+        element:<AdminRoute><AllPets></AllPets></AdminRoute>
+      },
+      {
+        path:"/dashboard/allDonations",
+        element:<AdminRoute><AllDonations></AllDonations></AdminRoute>
       }
     ]
     }
