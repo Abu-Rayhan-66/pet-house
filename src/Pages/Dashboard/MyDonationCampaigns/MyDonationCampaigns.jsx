@@ -23,36 +23,6 @@ const MyDonationCampaigns = () => {
         }
     })
 
-    
-
-    
-
-    // const {user} = useContext(AuthContext)
-    // const currentUser = user.email
-
-    // const [data,setData] = useState([])
-    // const [userData,setUserData] = useState([])
-    
-
-  //   useEffect(()=>{
-  //       fetch('http://localhost:5002/campaigns')
-  //       .then(res => res.json())
-  //       .then(data => {
-  //           setData(data)
-           
-           
-  //       })
-        
-  //   },[])
-
-  //   useEffect(()=>{
-  //       const filterDataNew = data.filter(item => item.email === currentUser)
-  //       setUserData(filterDataNew)
-  //   },[data, currentUser])
-    
-  //  console.log(userData)
-  //   console.log(data)
-
     return (
         <div className="overflow-x-auto">
   <table className="table">
@@ -89,7 +59,7 @@ const MyDonationCampaigns = () => {
           <td>
             {item.name}
           </td>
-          <td>{item.maximum}$</td>
+          <td>{item.amount}$</td>
           <td>
           <progress className="progress progress-info w-56" value={item.amount} max="1000"></progress>
           </td>
