@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import Swal from "sweetalert2";
 
 
 
@@ -8,13 +9,41 @@ const AllPets = () => {
 
     
   const axiosSecure = useAxiosSecure()
-    const { data: allPets = [] } = useQuery({
+    const { data: allPets = [], refetch } = useQuery({
         queryKey: ['campaigns' ],
         queryFn: async () => {
             const res = await axiosSecure.get('/pets')
             return res.data
         }
     })
+
+    const handleDelete = id =>{
+
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, Delete it!"
+          }).then(async (result) => {
+            if (result.isConfirmed) {
+                const res = await axiosSecure.delete(`/pets/${id}`)
+                console.log(res.data)
+                if(res.data.deletedCount > 0){
+                  refetch()
+                    Swal.fire({
+                        title: "Deleted",
+                        text: `Deleted successfully`,
+                        icon: "success"
+                      });
+                }
+            
+            }
+          });
+  
+    }
 
     return (
         <div className="overflow-x-auto">
@@ -56,8 +85,8 @@ const AllPets = () => {
           <td>
           {item.adopted === false ? 'Not adopted' : 'Adopted'}
           </td>
-          <td><Link to={`/dashboard/campaignUpdate/${item._id}`}><button className="btn bg-blue-500 text-white rounded-md hover:text-black hover:bg-blue-300  text-lg font-semibold">Delete</button></Link></td>
-          <td><Link ><button className="btn bg-blue-500 text-white rounded-md hover:text-black hover:bg-blue-300  text-lg font-semibold">Update</button></Link></td>
+          <td><Link onClick={() => handleDelete(item._id)}><button className="btn bg-blue-500 text-white rounded-md hover:text-black hover:bg-blue-300  text-lg font-semibold">Delete</button></Link></td>
+          <td><Link to={`/dashboard/petUpdate/${item._id}`}><button className="btn bg-blue-500 text-white rounded-md hover:text-black hover:bg-blue-300  text-lg font-semibold">Update</button></Link></td>
           <td><Link ><button className="btn bg-blue-500 text-white rounded-md hover:text-black hover:bg-blue-300  text-lg font-semibold">Change Status</button></Link></td>
           
         </tr>)

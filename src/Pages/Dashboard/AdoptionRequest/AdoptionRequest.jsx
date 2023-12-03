@@ -74,6 +74,8 @@ const AdoptionRequest = () => {
                         <th>#</th>
                         <th>User Name</th>
                         <th>User Email</th>
+                        <th>Phone Number</th>
+                        <th>Address</th>
                         <th>Status</th>
                         <th>Accept</th>
                         <th>reject</th>
@@ -87,6 +89,8 @@ const AdoptionRequest = () => {
                             <th>{index + 1 }</th>
                             <td>{item.name}</td>
                             <td>{item.email}</td>
+                            <td>{item.number}</td>
+                            <td>{item.address}</td>
                             {/* <td>
                                 {
                                     item.role === 'admin' ? "Admin" : <button onClick={()=>handleMakeAdmin(item)} className="btn btn-ghost text-xl bg-sky-300 text-white"><FaUsers/></button>
@@ -96,10 +100,10 @@ const AdoptionRequest = () => {
                                     {item.status}
                                 </td>
                                 <td>
-                                    <button onClick={() => handleAccept(item)} className="btn btn-outline"> Accept</button>
+                                    <button onClick={() => handleAccept(item)} className="btn bg-blue-500 text-white rounded-md hover:text-black hover:bg-blue-300  text-lg font-semibold"> Accept</button>
                                 </td>
                                 <td>
-                                   {item.status === 'accepted' ? <button disabled  className="btn btn-outline"> reject</button>  :<button onClick={() => handleDelete(item._id)} className="btn btn-outline"> reject</button>}
+                                   {item.status === 'accepted' ? <button disabled  className="btn bg-blue-500 text-white rounded-md hover:text-black hover:bg-blue-300  text-lg font-semibold"> reject</button>  :<button onClick={() => handleDelete(item._id)} className="btn bg-blue-500 text-white rounded-md hover:text-black hover:bg-blue-300  text-lg font-semibold"> reject</button>}
                                 </td>
                         </tr>)
                     }

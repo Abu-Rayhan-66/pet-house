@@ -11,7 +11,7 @@ const PetListing = () => {
 
 
     useEffect(()=>{
-        fetch('http://localhost:5002/pets')
+        fetch('https://y-five-ruddy.vercel.app/pets')
         .then(res => res.json())
         .then(data => {
             setData(data)

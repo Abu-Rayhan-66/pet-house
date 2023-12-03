@@ -24,11 +24,13 @@ import DonationDetails from "../Pages/DonationCampaigns/DonationDetails/Donation
 import AllPets from "../Pages/Dashboard/AllPtes/AllPets";
 import AllDonations from "../Pages/Dashboard/AllDonations/AllDonations";
 import CampaignUpdate from "../Pages/Dashboard/CampaignUpdate/CampaignUpdate";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 
   const router = createBrowserRouter([
     {
       path: "/",
       element:<Main></Main>,
+      errorElement:<ErrorPage></ErrorPage>,
       children:[
         {
             path:"/",
@@ -58,12 +60,12 @@ import CampaignUpdate from "../Pages/Dashboard/CampaignUpdate/CampaignUpdate";
         {
           path:"/petDetails/:_id",
           element:<PetDetails></PetDetails>,
-          loader: ({params}) => fetch(`http://localhost:5002/pets/${params._id}`)
+          loader: ({params}) => fetch(`https://y-five-ruddy.vercel.app/pets/${params._id}`)
         },
         {
           path:"/donationDetails/:_id",
           element:<DonationDetails></DonationDetails>,
-          loader: ({params}) => fetch(`http://localhost:5002/campaigns/${params._id}`)
+          loader: ({params}) => fetch(`https://y-five-ruddy.vercel.app/campaigns/${params._id}`)
         }
       ]
     },
@@ -83,13 +85,13 @@ import CampaignUpdate from "../Pages/Dashboard/CampaignUpdate/CampaignUpdate";
       {
        path:"/dashboard/petUpdate/:id",
        element:<PrivateRoute><PetUpdate></PetUpdate></PrivateRoute>,
-       loader: ({params}) => fetch(`http://localhost:5002/pets/${params.id}`)
+       loader: ({params}) => fetch(`https://y-five-ruddy.vercel.app/pets/${params.id}`)
        
       },
       {
        path:"/dashboard/campaignUpdate/:id",
        element:<PrivateRoute><CampaignUpdate></CampaignUpdate></PrivateRoute>,
-       loader: ({params}) => fetch(`http://localhost:5002/campaigns/${params.id}`)
+       loader: ({params}) => fetch(`https://y-five-ruddy.vercel.app/campaigns/${params.id}`)
        
       },
       {

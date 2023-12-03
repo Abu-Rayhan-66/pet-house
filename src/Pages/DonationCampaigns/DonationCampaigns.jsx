@@ -7,7 +7,7 @@ const DonationCampaigns = () => {
     const [data, setData] = useState([])
 
     useEffect(()=>{
-        fetch('http://localhost:5002/campaigns')
+        fetch('https://y-five-ruddy.vercel.app/campaigns')
         .then(res => res.json())
         .then(data => {
             setData(data)

@@ -14,7 +14,7 @@ const SpecificPetCategory = ({card}) => {
     const [loading, setLoading] = useState(true)
     
     useEffect(()=>{
-        fetch('http://localhost:5002/petCategory')
+        fetch('https://y-five-ruddy.vercel.app/petCategory')
         .then(res => res.json())
         .then(data => {
             setData(data)

@@ -24,7 +24,7 @@ const MyAddedPets = () => {
     
 
     // useEffect(()=>{
-    //     fetch(`http://localhost:5002/pets?email=${user?.email}`)
+    //     fetch(`https://y-five-ruddy.vercel.app/pets?email=${user?.email}`)
     //     .then(res => res.json())
     //     .then(data => {
     //         setData(data)

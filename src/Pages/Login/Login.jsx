@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import GoogleLogin from "../../Shared/SocialLogin/GoogleLogin/GoogleLogin";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import './Login.css'
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
@@ -9,6 +9,7 @@ import Swal from "sweetalert2";
 const Login = () => {
 
     const { userLogIn } = useContext(AuthContext)
+    const location = useLocation()
     const navigate = useNavigate()
 
     const {
@@ -24,9 +25,9 @@ const Login = () => {
         userLogIn(email, password)
             .then(res => {
                 console.log(res.user)
-
+                navigate(location?.state ? location.state : "/")
             })
-        navigate("/")
+        
         Swal.fire("Successfully Logged In ");
     }
 

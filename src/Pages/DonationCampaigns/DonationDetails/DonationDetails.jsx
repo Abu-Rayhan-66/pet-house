@@ -9,7 +9,7 @@ const DonationDetails = () => {
     const {user} = useContext(AuthContext)
     const axiosPublic  =useAxiosPublic()
     const data = useLoaderData()
-    const {photo, name, amount, date, } = data
+    const {photo, name, amount, date, description, longDescription } = data
 
     const {
         register,
@@ -52,8 +52,10 @@ const DonationDetails = () => {
                 </div>
                 <div className="w-1/2">
                   <h2 className="text-2xl">Name: {name}</h2>
-                  <h2 className="text-2xl mt-4">Maximum amount: {amount}</h2>
+                  <h2 className="text-2xl mt-4">Maximum amount: {amount}$</h2>
                   <p className="mt-5 mb-5">Date: {date}</p>
+                  <p className="mt-5 mb-5">Description: {description}</p>
+                  <p className="mt-5 mb-5">Full description: {longDescription}</p>
                   {/* <p className="mt-5 mb-5">Location: {location}</p> */}
                   {/* <button className="btn bg-blue-500 text-white rounded-md hover:text-black hover:bg-blue-300  text-lg font-semibold">Contact Us</button> */}
                     
@@ -70,7 +72,7 @@ const DonationDetails = () => {
               
                 <br />
                 <p className="text-blue-500">Amount</p>
-                <input {...register("amount")} className="pl-2 text-white rounded-md py-2 w-[300px] md:w-full bg-blue-400"  type="text"  />
+                <input  placeholder="Enter your amount" {...register("amount")} className=" pl-2 text-white rounded-md py-2 w-[300px] md:w-full bg-blue-400"  type="text"  />
                 {/* <br />
                 <p className="text-blue-500">User Name</p>
                 <input {...register("number")} className="pl-2 text-white rounded-md py-2 w-[300px] md:w-full bg-blue-400"  type="text"  /> */}

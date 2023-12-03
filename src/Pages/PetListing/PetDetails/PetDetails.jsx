@@ -10,7 +10,7 @@ const PetDetails = () => {
     const {user} = useContext(AuthContext)
     const data = useLoaderData()
     const axiosPublic = useAxiosPublic()
-    const {name, photo, age, category, location} = data || {}
+    const {name, photo, age, category, location, description, longDescription} = data || {}
     console.log(data)
 
     const {
@@ -56,9 +56,11 @@ const PetDetails = () => {
                 </div>
                 <div className="w-1/2">
                   <h2 className="text-2xl">Name: {name}</h2>
-                  <h2 className="text-2xl mt-4">Age: {age}</h2>
+                  <h2 className="text-2xl mt-4">Age: {age}Yr</h2>
                   <p className="mt-5 mb-5">Category: {category}</p>
                   <p className="mt-5 mb-5">Location: {location}</p>
+                  <p className="mt-5 mb-5">Description: {description}</p>
+                  <p className="mt-5 mb-5">Full description: {longDescription}</p>
                   {/* <button className="btn bg-blue-500 text-white rounded-md hover:text-black hover:bg-blue-300  text-lg font-semibold">Contact Us</button> */}
                     
             <button className="rounded-md btn bg-blue-500 border-[#eae9dc] text-white hover:text-black hover:bg-blue-300 font-semibold text-lg" 
