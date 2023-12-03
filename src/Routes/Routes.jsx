@@ -20,6 +20,7 @@ import PetsCategory from "../Pages/Home/PetsCategory/PetsCategory";
 import PetDetails from "../Pages/PetListing/PetDetails/PetDetails";
 import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
 import AdminRoute from "./AdminRoutes";
+import DonationDetails from "../Pages/DonationCampaigns/DonationDetails/DonationDetails";
 
   const router = createBrowserRouter([
     {
@@ -55,6 +56,11 @@ import AdminRoute from "./AdminRoutes";
           path:"/petDetails/:_id",
           element:<PetDetails></PetDetails>,
           loader: ({params}) => fetch(`http://localhost:5002/pets/${params._id}`)
+        },
+        {
+          path:"/donationDetails/:_id",
+          element:<DonationDetails></DonationDetails>,
+          loader: ({params}) => fetch(`http://localhost:5002/campaigns/${params._id}`)
         }
       ]
     },
