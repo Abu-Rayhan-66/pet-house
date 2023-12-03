@@ -25,7 +25,7 @@ const GoogleLogin = () => {
           axiosPublic.post('/users', userInfo)
           .then(result =>{
               console.log(result.data)
-              navigate('/')
+              navigate("/")
           })
       })
     

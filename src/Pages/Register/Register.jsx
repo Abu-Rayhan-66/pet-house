@@ -99,7 +99,7 @@ const Register = () => {
 
             <h3 className='text-white text-lg  font-medium'>Password</h3>
             <input className='pl-2 bg-black rounded-md py-2 w-[300px] md:w-[400px]  text-lg '
-              {...register("password", { required: true })} type="password" placeholder='Password' id="" />
+              {...register("password", { required: true,  })} type="password" placeholder='Password' id="" />
             {errors.password && <span className="mt-2 text-red-600 ">password is required </span>}
 
             <h3 className='text-white text-lg  font-medium'>Profile Picture</h3>

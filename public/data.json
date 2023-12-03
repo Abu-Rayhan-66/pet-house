@@ -1,0 +1,22 @@
+[
+  {
+      "id": 1,
+    "image": "https://i.ibb.co/PTMRsj8/catajsbhs.jpg",
+    "category": "cat"
+  },
+  {
+      "id": 2,
+    "image": "https://i.ibb.co/wRvcJMG/dogoso.jpg",
+    "category": "dog"
+  },
+  {
+      "id": 3,
+    "image": "https://i.ibb.co/YdSvzLh/rabbitdj.jpg",
+    "category": "rabbit"
+  },
+  {
+      "id": 4,
+    "image": "https://i.ibb.co/WgNPcmR/jffuerwyhuh.jpg",
+    "category": "eagle"
+  }
+]

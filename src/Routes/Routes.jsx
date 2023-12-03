@@ -14,6 +14,12 @@ import AdoptionRequest from "../Pages/Dashboard/AdoptionRequest/AdoptionRequest"
 import CreateDonationCampaign from "../Pages/Dashboard/CreateDonationCampaign/CreateDonationCampaign";
 import MyDonationCampaigns from "../Pages/Dashboard/MyDonationCampaigns/MyDonationCampaigns";
 import MyDonations from "../Pages/Dashboard/MyDonations/MyDonations";
+import PrivateRoute from "./PrivateRoute";
+import PetUpdate from "../Pages/Dashboard/PetUpdate/PetUpdate";
+import PetsCategory from "../Pages/Home/PetsCategory/PetsCategory";
+import PetDetails from "../Pages/PetListing/PetDetails/PetDetails";
+import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
+import AdminRoute from "./AdminRoutes";
 
   const router = createBrowserRouter([
     {
@@ -39,6 +45,16 @@ import MyDonations from "../Pages/Dashboard/MyDonations/MyDonations";
         {
           path:"/register",
           element:<Register></Register>
+        },
+        {
+          path:"/pet/:_id",
+          element:<PetsCategory></PetsCategory>,
+          loader:() => fetch('/data.json')
+        },
+        {
+          path:"/petDetails/:_id",
+          element:<PetDetails></PetDetails>,
+          loader: ({params}) => fetch(`http://localhost:5002/pets/${params._id}`)
         }
       ]
     },
@@ -49,27 +65,37 @@ import MyDonations from "../Pages/Dashboard/MyDonations/MyDonations";
     children: [
       {
         path: "/dashboard/addPet",
-        element:<AddPet></AddPet>
+        element:<PrivateRoute><AddPet></AddPet></PrivateRoute>
       },
       {
         path:"/dashboard/myAddedPets",
-        element:<MyAddedPets></MyAddedPets>
+        element:<PrivateRoute><MyAddedPets></MyAddedPets></PrivateRoute>
+      },
+      {
+       path:"/dashboard/petUpdate/:id",
+       element:<PetUpdate></PetUpdate>,
+       loader: ({params}) => fetch(`http://localhost:5002/pets/${params.id}`)
+       
       },
       {
         path:"/dashboard/adoptionRequest",
-        element:<AdoptionRequest></AdoptionRequest>
+        element:<PrivateRoute><AdoptionRequest></AdoptionRequest></PrivateRoute>
       },
       {
         path:"/dashboard/createDonationCampaign",
-        element:<CreateDonationCampaign></CreateDonationCampaign>
+        element:<PrivateRoute><CreateDonationCampaign></CreateDonationCampaign></PrivateRoute>
       },
       {
         path:"/dashboard/myDonationCampaigns",
-        element:<MyDonationCampaigns></MyDonationCampaigns>
+        element:<PrivateRoute><MyDonationCampaigns></MyDonationCampaigns></PrivateRoute>
       },
       {
         path:"/dashboard/myDonations",
-        element:<MyDonations></MyDonations>
+        element:<PrivateRoute><MyDonations></MyDonations></PrivateRoute>
+      },
+      {
+        path:"/dashboard/allUsers",
+        element:<AdminRoute><AllUsers></AllUsers></AdminRoute>
       }
     ]
     }

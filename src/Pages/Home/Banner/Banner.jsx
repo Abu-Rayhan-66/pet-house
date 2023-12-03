@@ -3,7 +3,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 const Banner = () => {
     return (
-        <div className="h-[500px] px-10 mt-10" >
+        <div >
               <Carousel>
                 <div >
                     <img className="" src="https://i.ibb.co/BfsYgGB/isolated-shot-ginger-cat-looking-retriever-dog-looking-camera-white-surface-181624-43633.jpg" />

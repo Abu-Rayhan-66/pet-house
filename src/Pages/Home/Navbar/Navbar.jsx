@@ -3,15 +3,18 @@ import { AuthContext } from "../../../Provider/AuthProvider";
 import { Link, NavLink } from "react-router-dom";
 
 
+
 const Navbar = () => {
     const {user, logOut} = useContext(AuthContext)
     const [isOpen, setIsOpen] = useState(false)
+ 
   
 
     const handleSignOut = () =>{
       logOut()
       .then()
       .catch()
+      
   
     }
   
@@ -49,19 +52,19 @@ const Navbar = () => {
      {
        user && 
        <div  className="">
-         <img onClick={() =>setIsOpen(!isOpen)} className="w-20 h-16 rounded-sm mr-2"  src={user.photoURL} />
+         <img onClick={() =>setIsOpen(!isOpen)} className="w-20 h-16  mr-2 border-4 border-blue-500 border-rounded-md"  src={user.photoURL} />
          
        </div>
      }
      {
       isOpen && <div className="absolute z-10 top-32">
         {
-          user && <Link to="/dashboard" className="btn bg-blue-500 w-[120px] text-white rounded-md hover:text-black hover:bg-blue-300  text-lg font-semibold">
+          user && <Link onClick={() =>setIsOpen(!isOpen)} to="/dashboard/addPet" className="btn bg-blue-500 w-[120px] text-white rounded-md hover:text-black hover:bg-blue-300  text-lg font-semibold">
           Dashboard
           </Link>
         }
         {
-          user ? <button onClick={handleSignOut} className="btn bg-blue-500 w-[120px] text-white rounded-md hover:text-black hover:bg-blue-300  text-lg font-semibold">Sign Out</button>:
+          user ? <Link to="/login"><button onClick={handleSignOut} className="btn bg-blue-500 w-[120px] text-white rounded-md hover:text-black hover:bg-blue-300  text-lg font-semibold">Sign Out</button></Link>:
           ''
         }
 
