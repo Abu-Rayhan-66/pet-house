@@ -23,6 +23,7 @@ import AdminRoute from "./AdminRoutes";
 import DonationDetails from "../Pages/DonationCampaigns/DonationDetails/DonationDetails";
 import AllPets from "../Pages/Dashboard/AllPtes/AllPets";
 import AllDonations from "../Pages/Dashboard/AllDonations/AllDonations";
+import CampaignUpdate from "../Pages/Dashboard/CampaignUpdate/CampaignUpdate";
 
   const router = createBrowserRouter([
     {
@@ -81,8 +82,14 @@ import AllDonations from "../Pages/Dashboard/AllDonations/AllDonations";
       },
       {
        path:"/dashboard/petUpdate/:id",
-       element:<PetUpdate></PetUpdate>,
+       element:<PrivateRoute><PetUpdate></PetUpdate></PrivateRoute>,
        loader: ({params}) => fetch(`http://localhost:5002/pets/${params.id}`)
+       
+      },
+      {
+       path:"/dashboard/campaignUpdate/:id",
+       element:<PrivateRoute><CampaignUpdate></CampaignUpdate></PrivateRoute>,
+       loader: ({params}) => fetch(`http://localhost:5002/campaigns/${params.id}`)
        
       },
       {
