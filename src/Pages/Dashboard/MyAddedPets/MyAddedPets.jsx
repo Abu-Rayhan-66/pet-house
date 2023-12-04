@@ -16,22 +16,7 @@ const MyAddedPets = () => {
   // const {user} = useContext(AuthContext)
     const axiosPublic = useAxiosPublic()
     
-    // const [menu, , refetch] = useMyPet()
     
-    // const [data,setData] = useState([])
-    
-  
-    
-
-    // useEffect(()=>{
-    //     fetch(`https://y-five-ruddy.vercel.app/pets?email=${user?.email}`)
-    //     .then(res => res.json())
-    //     .then(data => {
-    //         setData(data)
-           
-
-    //     })
-    // },[user?.email])
 
     const handleDelete = pet =>{
 

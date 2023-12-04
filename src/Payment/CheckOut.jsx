@@ -109,7 +109,7 @@ const CheckOut = () => {
       />
 
       <input onBlur={(e) =>setDonation(e.target.value)} type="number" name="payment" />
-      <button className="btn btn-secondary btn-sm my-3" disabled={!stripe || !clientSecret}>
+      <button className="btn btn-warning btn-sm my-3 " disabled={!stripe || !clientSecret}>
         Pay
       </button>
       <p className="text-red-700">{error}</p>
