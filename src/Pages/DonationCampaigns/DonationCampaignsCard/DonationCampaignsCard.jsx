@@ -8,7 +8,7 @@ const DonationCampaignsCard = ({ item }) => {
     const {_id, photo, name, amount, addedTime, } = item
 
     return (
-        <div className="card card-compact w-96 bg-base-100 shadow-xl">
+        <div className="card card-compact  bg-base-100 shadow-xl">
             <figure><img className="h-[300px]" src={photo} alt="Shoes" /></figure>
             <div className="card-body">
                 <h2 className="card-title">Name: {name}</h2>

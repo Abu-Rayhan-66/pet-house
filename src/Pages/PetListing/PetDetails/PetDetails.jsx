@@ -48,13 +48,13 @@ const PetDetails = () => {
     
 
     return (
-        <div className="mx-20 mb-10">
+        <div className="mx-10 mb-10">
             <h2 className="text-2xl text-center mt-10 mb-10">Meet {name}</h2>
-            <div className="flex  gap-16">
-                <div className="w-1/2">
+            <div className="md:flex  gap-16">
+                <div className=" md:w-1/2">
                   <img className="h-[500px] w-full rounded-md" src={photo} alt="" />
                 </div>
-                <div className="w-1/2">
+                <div className="md:w-1/2">
                   <h2 className="text-2xl">Name: {name}</h2>
                   <h2 className="text-2xl mt-4">Age: {age}Yr</h2>
                   <p className="mt-5 mb-5">Category: {category}</p>

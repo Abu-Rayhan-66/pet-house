@@ -2,7 +2,7 @@
 
 const CallToAction = () => {
     return (
-        <div className="mx-20 mb-10">
+        <div className="mx-10 mb-10">
             <h2 className="text-2xl text-center mt-10 mb-10">Call to Action</h2>
             <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
             <div className=" card card-compact  bg-base-100 shadow-xl">
